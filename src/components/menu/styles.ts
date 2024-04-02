@@ -4,10 +4,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 150px;
+  width: fit-content;
 `;
 
-export const MenuButtonClosed = styled.a`
+export const MenuButtonClosed = styled.button`
   height: 65px;
   width: 55px;
 
@@ -34,7 +34,7 @@ export const MenuButtonClosed = styled.a`
   }
 `;
 
-export const MenuButtonOpen = styled.a`
+export const MenuButtonOpen = styled.button`
   height: 40px;
 
   overflow: hidden;

@@ -4,6 +4,7 @@ import { Home, Play } from "lucide-react";
 import Button from "../button";
 
 import { Container, MenuButtonClosed, MenuButtonOpen } from "./styles";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,27 +26,23 @@ const Menu = () => {
     <Container>
       {options.map(({ icon: Icon, ...rest }) =>
         isOpen ? (
-          <MenuButtonOpen
-            className="menu-button"
-            href={rest.pathname}
-            key={rest.pathname}
-          >
-            <Button>
-              <Icon size={20} />
-              <span>{rest.title}</span>
-            </Button>
-          </MenuButtonOpen>
+          <Link to={rest.pathname}>
+            <MenuButtonOpen className="menu-button" key={rest.pathname}>
+              <Button>
+                <Icon size={20} />
+                <span>{rest.title}</span>
+              </Button>
+            </MenuButtonOpen>
+          </Link>
         ) : (
-          <MenuButtonClosed
-            className="menu-button"
-            href={rest.pathname}
-            key={rest.pathname}
-          >
-            <Button>
-              <Icon size={20} />
-              <span>{rest.title}</span>
-            </Button>
-          </MenuButtonClosed>
+          <Link to={rest.pathname}>
+            <MenuButtonClosed className="menu-button" key={rest.pathname}>
+              <Button>
+                <Icon size={20} />
+                <span>{rest.title}</span>
+              </Button>
+            </MenuButtonClosed>
+          </Link>
         )
       )}
     </Container>
