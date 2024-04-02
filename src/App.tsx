@@ -1,5 +1,6 @@
 import Header from "./components/header";
 import Menu from "./components/menu";
+import VideoList from "./components/video-list";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
 
       <div className="content">
         <Menu />
-        <div></div>
+        <VideoList />
       </div>
     </div>
   );
