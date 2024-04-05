@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
-import App from "./App.tsx";
+import App from "./app.tsx";
 
 // Styles
 import "./styles/global.css";
