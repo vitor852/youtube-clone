@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 import {
   Container,
@@ -12,28 +13,24 @@ import {
   PostDate,
 } from "./styles";
 
-interface VideoProps {
-  id: number;
-  title: string;
-  previewSrc: string;
-  videoUrl: string;
-  visualizationsQtd: number;
-  postDate: Date;
-  channel: {
-    avatarSrc: string;
-    name: string;
-  };
-}
+import { Video as VideoProps } from "../../types/video";
 
 const Video = (props: VideoProps) => {
-  const dateToString = (date: Date) => {
-    return "há 1 ano";
-  };
+  function dateToElapsedTime(postDate: Date) {
+    const elapsedTime = moment(postDate).fromNow();
+    return elapsedTime;
+  }
+
+  function formatViews(views: number) {
+    if (views < 1000) return views;
+    if (views < 1000000) return `${(views / 1000).toFixed(1)}K`;
+    else return `${(views / 1000000).toFixed(1)}M`;
+  }
 
   return (
     <Container>
       <Link to="/video/">
-        <PreviewImage src={props.previewSrc} />
+        <PreviewImage src={props.previewSrc} loading="lazy" />
       </Link>
 
       <Details>
@@ -52,10 +49,9 @@ const Video = (props: VideoProps) => {
 
           <div>
             <Visualizations>
-              {props.visualizationsQtd} visualizations
+              {formatViews(props.visualizationsQtd)} views
             </Visualizations>
-
-            <PostDate>{dateToString(props.postDate)}</PostDate>
+            <PostDate>{dateToElapsedTime(props.postDate)}</PostDate>
           </div>
         </Meta>
       </Details>

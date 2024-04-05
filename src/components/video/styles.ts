@@ -6,12 +6,19 @@ export const Container = styled.div`
 
   gap: 8px;
 
-  max-width: 300px;
+  max-width: 330px;
 
   flex-grow: 1;
 `;
 
 export const PreviewImage = styled.img`
+  width: 330px;
+  height: 180px;
+
+  object-fit: cover;
+
+  background-color: #3f3f3f;
+
   border-radius: 10px;
 `;
 
