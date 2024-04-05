@@ -14,6 +14,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -23,9 +25,9 @@
     /* Paths */
     "baseUrl": "./src",
     "paths": {
-      "@components": ["components/*"]
+      "@/*": ["./*"]
     }
   },
-  "include": ["src"],
+  "include": ["src/**/*", "jest.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
